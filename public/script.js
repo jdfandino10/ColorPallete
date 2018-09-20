@@ -32,7 +32,6 @@ function toCssRGB(rgb) {
 
 function newPallete() {
   randomPalette();
-  console.log(colors);
   showChanges();
 }
 
@@ -52,9 +51,12 @@ function generateRules(){
 
 function updateColors() {
   elementQuery.forEach((elem, index) => {
-    console.log('updated ' + elementCss[index] + ' with ' + colors[index]);
     $(elem).css(elementCss[index], colors[index]);
   });
+  for (let i = 1; i <= 5; i++) {
+    $('#color' + i).css('background-color', colors[i - 1]);
+    $('#color' + i).css('color', 'black');
+  }
 }
 
 function cleanPallete() {
