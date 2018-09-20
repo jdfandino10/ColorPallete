@@ -22,7 +22,7 @@ function randomPalette(){
 
 function toCssRGB(rgb) {
   let num = '#';
-  for (let color : rgb) {
+  for (let color in rgb) {
     num += color.toString(16);
   }
   return num;
