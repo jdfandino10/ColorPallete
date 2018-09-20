@@ -30,6 +30,7 @@ function toCssRGB(rgb) {
 
 function newPallete() {
   randomPalette();
+  console.log(colors);
   showChanges();
 }
 
@@ -49,6 +50,7 @@ function generateRules(){
 
 function updateColors() {
   elementQuery.forEach((elem, index) => {
+    console.log('updated ' + elementCss[index] + ' with ' + colors[index]);
     $(elem).css(elementCss[index], colors[index]);
   });
 }
