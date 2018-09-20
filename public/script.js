@@ -12,17 +12,19 @@ let colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'];
 function randomPalette(){
   let initial = Math.random() * circleDeg;
   let degrees = [initial];
-  let saturation = Math.floor((Math.random() * 101) / 10) / 10;
-  let value = Math.floor((Math.random() * 101) / 10) / 10;
+  let saturation = 0.5;
+  let value = 0.5;
   for (let i = 1; i < 5; i++) {
     degrees.push((degrees[i - 1] + colorDistance) % circleDeg);
   }
-  colors = degrees.map((hue) => toCssRGB(hsvToRgb(hue, saturation, value)));
+  colors = degrees.map((hue) => toCssRGB(hslToRgb(hue/circleDeg, saturation, value)));
 }
 
 function toCssRGB(rgb) {
   let num = '#';
-  for (let color in rgb) {
+  for (let i in rgb) {
+    let color = Math.ceil(rgb[i]);
+    if ((color + "").length == 1) color = '0' + color;
     num += color.toString(16);
   }
   return num;
