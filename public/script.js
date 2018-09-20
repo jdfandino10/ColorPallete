@@ -30,6 +30,7 @@ function toCssRGB(rgb) {
 
 function newPallete() {
   randomPalette();
+  showChanges();
 }
 
 function showChanges() {
@@ -53,6 +54,6 @@ function updateColors() {
 }
 
 function cleanPallete() {
-  colors = colors.map((c) => '#FFFFFF');
+  colors = colors.map((c) => 'initial');
   showChanges();
 }
